@@ -1,6 +1,14 @@
 import {Router} from 'express'
+import AWS from 'aws-sdk'
+import config from '../config'
 
 const router = Router()
+
+const spacesEndpoint = new AWS.Endpoint(config.Endpoint)
+
+const s3 = new AWS.S3({
+    endpoint:spacesEndpoint
+});
 
 router.post('/api/images/upload', async (req, res)=>{
     
