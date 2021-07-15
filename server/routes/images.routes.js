@@ -41,10 +41,26 @@ router.post('/api/images/upload', async (req, res) => {
 
 })//subir una imagen al servidor
 
-router.get('/api/images', async (req, res) => { })//para listar todas la imagenes guardadas en la BD y en donde esta guardada
+router.get('/api/images', async (req, res) => {
+    const images = await Image.find()
+    return res.json(images)
+})//para listar todas la imagenes guardadas en la BD y en donde esta guardada
 
-router.get('/api/images/:id', async (req, res) => { })//para obtener la info de una sola imagen
+router.get('/api/images/:id', async (req, res) => {
+    const image = await Image.findById(req.params.id);
+    return res.json(image)
+ })//para obtener la info de una sola imagen
 
-router.delete('/api/images/:id', async (req, res) => { })//eliminar una imagen apartir de un id
+router.delete('/api/images/:id', async (req, res) => { 
+    const deletedImage = await Image.findByIdAndDelete(req.params.id);
+    
+    await s3.deleteObject ({
+        Bucket: config.BucketName,
+        Key: deletedImage.key
+    }).promise();
+
+    res.json(deletedImage)
+
+})//eliminar una imagen apartir de un id
 
 export default router
