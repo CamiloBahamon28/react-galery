@@ -2,11 +2,13 @@
   "name": "react-gallery",
   "version": "0.1.0",
   "private": true,
+  "proxy":"http://localhost:4000",
   "dependencies": {
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
     "aws-sdk": "^2.941.0",
+    "axios": "^0.21.1",
     "bootstrap": "^5.0.2",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
