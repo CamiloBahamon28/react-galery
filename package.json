@@ -7,12 +7,14 @@
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
     "aws-sdk": "^2.941.0",
+    "bootstrap": "^5.0.2",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "express-fileupload": "^1.2.1",
     "mongoose": "^5.12.14",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
     "web-vitals": "^1.1.2"
   },
@@ -23,7 +25,7 @@
     "eject": "react-scripts eject",
     "server:dev": "nodemon server/index.js --exec babel-node --ignore src",
     "server:build": "babel server -d dist",
-    "server:star": "node dist/index.js"
+    "server:start": "node dist/index.js"
   },
   "eslintConfig": {
     "extends": [
